@@ -11,11 +11,7 @@ services:
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
       - APP_PROMOTION_SERVICE_URL=http://promotion-service:8082
-      - OTEL_JAVAAGENT_ENABLED=true
-      - OTEL_SERVICE_NAME=product-service
-      - OTEL_METRICS_EXPORTER=none
-      - OTEL_TRACES_EXPORTER=jaeger
-      - OTEL_EXPORTER_JAEGER_ENDPOINT=http://jaeger:14250
+      - APP_JAEGER_ENDPOINT=http://jaeger:14250
     ports:
       - "8081:8081"
 
@@ -29,11 +25,7 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
-      - OTEL_SERVICE_NAME=promotion-service
-      - OTEL_JAVAAGENT_ENABLED=true
-      - OTEL_METRICS_EXPORTER=none
-      - OTEL_TRACES_EXPORTER=jaeger
-      - OTEL_EXPORTER_JAEGER_ENDPOINT=http://jaeger:14250
+      - APP_JAEGER_ENDPOINT=http://jaeger:14250
     ports:
       - "8082:8082"
 

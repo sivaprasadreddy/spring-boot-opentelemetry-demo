@@ -1,6 +1,6 @@
 package com.sivalabs.productservice.domain;
 
-import com.sivalabs.productservice.config.ApplicationProperties;
+import com.sivalabs.productservice.ApplicationProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.ParameterizedTypeReference;
@@ -23,11 +23,11 @@ public class PromotionServiceClient {
 
     public List<Promotion> getProductPromotions() {
         try {
-            log.info("Fetching promotions from {}", properties.promotionServiceUrl()+"/api/promotions");
+            log.info("Fetching promotions from {}", properties.getPromotionServiceUrl()+"/api/promotions");
             HttpHeaders headers = new HttpHeaders();
             HttpEntity<?> httpEntity = new HttpEntity<>(headers);
             ResponseEntity<List<Promotion>> response = restTemplate.exchange(
-                    properties.promotionServiceUrl()+"/api/promotions", HttpMethod.GET, httpEntity,
+                    properties.getPromotionServiceUrl()+"/api/promotions", HttpMethod.GET, httpEntity,
                     new ParameterizedTypeReference<>() {});
             return response.getBody();
 

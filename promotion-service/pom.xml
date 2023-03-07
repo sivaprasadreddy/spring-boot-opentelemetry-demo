@@ -42,6 +42,14 @@
             <artifactId>postgresql</artifactId>
         </dependency>
         <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-tracing-bridge-otel</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-exporter-jaeger</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
@@ -94,19 +102,6 @@
                     </excludes>
                     <image>
                         <name>sivaprasadreddy/${project.artifactId}</name>
-                        <!--<builder>dashaun/builder:tiny</builder>-->
-                        <buildpacks>
-                            <buildpack>paketo-buildpacks/java</buildpack>
-                            <buildpack>gcr.io/paketo-buildpacks/opentelemetry</buildpack>
-                        </buildpacks>
-                        <env>
-                            <BP_JVM_VERSION>17</BP_JVM_VERSION>
-                            <BP_OPENTELEMETRY_ENABLED>true</BP_OPENTELEMETRY_ENABLED>
-                            <!--<BPE_OTEL_JAVAAGENT_ENABLED>true</BPE_OTEL_JAVAAGENT_ENABLED>
-                            <BPE_OTEL_TRACES_EXPORTER>jaeger</BPE_OTEL_TRACES_EXPORTER>
-                            <BPE_OTEL_EXPORTER_JAEGER_ENDPOINT>http://jaeger:14250</BPE_OTEL_EXPORTER_JAEGER_ENDPOINT>
-                            <BPE_OTEL_SERVICE_NAME>promotion-service</BPE_OTEL_SERVICE_NAME>-->
-                        </env>
                     </image>
                 </configuration>
             </plugin>
